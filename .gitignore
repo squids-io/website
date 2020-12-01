@@ -1,0 +1,9 @@
+
+public/
+resources/
+node_modules/
+tech-doc-hugo
+.config/
+.npm/
+.DS_Store 
+*/.DS_Store

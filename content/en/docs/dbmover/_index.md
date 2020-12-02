@@ -3,12 +3,10 @@ title: "Migrate MySQL"
 linkTitle: "Migrate MySQL"
 weight: 2
 description: >
-  A light and smart migration tool for MySQL
+  a light and smart database migration tool,no installtion.
 ---
 
 # DBMover for MySQL
-
-a light and smart database migration tool,no installtion.
 
 DBMover is a database migration tool for developers and DBA,you can use it to migrate object structure and data between MySQL databases.
 
@@ -36,6 +34,7 @@ In this mode,you should collect every pod's migrate status to get a summary view
 #### Get dbmover for MySQL
 - Download [dbmover_for_linux](https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_linux)
 - Download [dbmover_for_mac](https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_mac)
+
 
 
 
@@ -125,6 +124,10 @@ parameter | description
 ---|---
 --source-dbstring | source db connect string: username/pwd@192.168.0.1:3306
 --target-dbstring | target db connect string: username/pwd@192.168.0.1:3306
+--enable-ssl-source | enable source SSL connect (default n)
+--enable-ssl-target | enable target SSL connect (default n)
+--ssl-cafile-source | source SSL CA file path
+--ssl-cafile-target | target SSL CA file path
 --only-check | n \| y,only check the migrating conditions and give you a checklist,do not migrate anything (default "n")
 --move-model | onlydata \| onlymeta \| all, you can choose move table data,object structure or both (default "onlydata")
 --exists-handle | ignore \| drop,used for onlymeta\|all model,when target object exists (default "ignore")
@@ -231,6 +234,7 @@ timestamp | yes
 [mysql] 2020/11/09 17:38:51 packets.go:72: unexpected EOF
 [mysql] 2020/11/09 17:46:00 packets.go:72: read tcp 126.126.0.58:54225->10.10.98.232:3306: read: connection reset by peer
 ```
+
 
 
 

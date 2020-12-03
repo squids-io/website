@@ -100,6 +100,29 @@ Backup created success, name: &lt;span style="color:#ce5c00;font-weight:bold">[&
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>need command!!!&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a incremental backup task ==incremental-task== for ==my-cluster-test== in the grds namespace&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>need command!!!&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Full Backup Manually</title><link>https://grdscloud.github.io/website/docs/grds-client/backup/manual-full-job/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/backup/manual-full-job/</guid><description>
+&lt;h4 id="create-a-full-backup-job-manually">Create A Full Backup Job Manually&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds backup manual-full-job &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;backup-name&lt;/td>
+&lt;td>The backup name that you want to create backup job manually.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a full backup job manually for my-cluster-test under grds namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds backup manual-full-job --backup-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-backup-test
+Manual backup Job created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-backup-test-full--test-1606909374&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>grds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup List</title><link>https://grdscloud.github.io/website/docs/grds-client/backup/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/backup/list/</guid><description>
 &lt;h4 id="list-backup">List Backup&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>

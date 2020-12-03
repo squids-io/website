@@ -1,7 +1,7 @@
 ---
 title: "Grds Backup Delete"
 linkTitle: "backup delete"
-weight: 5
+weight: 6
 description: >
    Delete backup task.
 ---

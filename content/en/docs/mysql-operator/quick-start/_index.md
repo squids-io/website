@@ -160,23 +160,30 @@ You can use `grds mysql show` command to get detail information of a MySQL clust
 ```shell
 $ grds  mysql show my-cluster-test  -w table
 
-MYSQL CLUSTER INFO:
+> Note: AccessIP is the access entrance of database cluster, firstly use a LoadBalanceIP, if LoadBalanceIP is null, use Master database NodeIP
 
-> Note: AccessIP is the access entrance of database cluster,firstly use a LoadBalanceIP,if LoadBalanceIP is null,use MasterNodeIP
-
-+-----------------+-----------+---------+-------+-----------+-----------------+-------+
-|      NAME       | NAMESPACE | REPLICA | SLAVE |  STATUS   |     ACCESSIP    | PORT  |
-+-----------------+-----------+---------+-------+-----------+-----------------+-------+
-| my-cluster-test |      grds |       2 |     1 | available |  10.10.120.174  | 30442 |
-+-----------------+-----------+---------+-------+-----------+---------+-------+-------+
-MYSQL DATABASE INFO:
-+----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------+-----------+
-|            NAME            | NAMESPACE | CPUREQUEST | CPULIMIT | MEMORYREQUEST | MEMORYLIMIT | PVCSIZE |   NODENAME    |  ROLE   |  STATUS   |
-+----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------+-----------+
-| my-cluster-test-replica0-0 |      grds |          0 |        2 |             0 |         2Gi |    10Gi | 10-10-120-174 |  master | available |
-| my-cluster-test-replica1-0 |      grds |          0 |        2 |             0 |         2Gi |    10Gi | 10-10-120-133 | standby | available |
-|   my-cluster-test-slave0-0 |      grds |          0 |        2 |             0 |         2Gi |    10Gi | 10-10-120-232 |   slave | available |
-+----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------+-----------+
+CLUSTER
++-----------------+-----------+---------+-------+-----------+---------------+-------+
+|      NAME       | NAMESPACE | REPLICA | SLAVE |  STATUS   |   ACCESSIP    | PORT  |
++-----------------+-----------+---------+-------+-----------+---------------+-------+
+| my-cluster-test |      grds |       2 |     1 | available | 10.10.120.133 | 32324 |
++-----------------+-----------+---------+-------+-----------+---------------+-------+
+DATABASE
++----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+|            NAME            | NAMESPACE | CPUREQUEST | CPULIMIT | MEMORYREQUEST | MEMORYLIMIT | PVCSIZE |    NODEIP     |   NODENAME    |  ROLE   |  STATUS   |
++----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+| my-cluster-test-replica0-0 |      grds |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.133 | 10-10-120-133 |  master | available |
+| my-cluster-test-replica1-0 |      grds |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.232 | 10-10-120-232 | standby | available |
+|   my-cluster-test-slave0-0 |      grds |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.174 | 10-10-120-174 |   slave | available |
++----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+VOLUME
++----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
+|            NAME            | PVCSIZE |   NODENAME    |                                                 PATH                                                  |
++----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
+| my-cluster-test-replica0-0 |    10Gi | 10-10-120-133 | /var/lib/k3s/local-path/pvc-0a1f85b5-7bd8-4ce6-93dd-7653350b5159_grds_data-my-cluster-test-replica0-0 |
+| my-cluster-test-replica1-0 |    10Gi | 10-10-120-232 | /var/lib/k3s/local-path/pvc-d3928c72-49bb-4c9e-aa45-bfa3ff0cae3c_grds_data-my-cluster-test-replica1-0 |
+|   my-cluster-test-slave0-0 |    10Gi | 10-10-120-174 |   /var/lib/k3s/local-path/pvc-a1657f5d-c722-4315-97f1-b95838b1e85c_grds_data-my-cluster-test-slave0-0 |
++----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
 ```
 
 2. **connect MySQL database**

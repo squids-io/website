@@ -235,6 +235,13 @@ timestamp | yes
 [mysql] 2020/11/09 17:46:00 packets.go:72: read tcp 126.126.0.58:54225->10.10.98.232:3306: read: connection reset by peer
 ```
 
+- not support change data capture
+
+```
+dbmover use Select SQL to get source table data,do not capture data changing during migration,
+we suggest you stop source application before your migration,or you will get inconsistent data.
+```
+
 
 
 

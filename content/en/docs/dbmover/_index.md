@@ -121,7 +121,7 @@ before your  migration,you can use --only-check to pre-check source/target envir
 
 
 parameter | description
----|---
+---|--- 
 --source-dbstring | source db connect string: username/pwd@192.168.0.1:3306
 --target-dbstring | target db connect string: username/pwd@192.168.0.1:3306
 --enable-ssl-source | enable source SSL connect (default n)

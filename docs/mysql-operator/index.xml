@@ -90,6 +90,9 @@ export GRDS_APISERVER_URL='https://127.0.0.1:8443'
 export GRDS_NAMESPACE=grds
 EOF
 source ~/.bash_profile
+&lt;/code>&lt;/pre>&lt;p>Finally, In order to communicate with the Operator API server, you will first need to set up a port forward to your local environment.&lt;/p>
+&lt;p>In a new console window, run the following command to set up a port forward:&lt;/p>
+&lt;pre>&lt;code>kubectl -n grds port-forward svc/mysql-operator 8443:8443
 &lt;/code>&lt;/pre>&lt;h3 id="create-a-mysql-cluster-using-grds-cli-tool">Create a MySQL Cluster using grds CLI tool&lt;/h3>
 &lt;ol>
 &lt;li>&lt;strong>Create database&lt;/strong>&lt;/li>

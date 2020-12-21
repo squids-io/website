@@ -1,6 +1,6 @@
 ---
 title: "Grds Backup Command"
-linkTitle: "Backup Command"
+linkTitle: "Backup"
 weight: 1
 description: >
    The lifecycle of managed backup.

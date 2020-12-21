@@ -1,6 +1,6 @@
 ---
 title: "Grds MySQL Command"
-linkTitle: "MySQL Command"
+linkTitle: "MySQL"
 weight: 1
 description: >
    The lifecycle of managed mysql clusters.

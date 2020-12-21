@@ -229,6 +229,65 @@ MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&l
 +-----------------+-----------+---------+-------+-----------+-----------------+-------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30442&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------------+-----------+---------+-------+-----------+---------+-------+-------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Restore Cluster</title><link>https://grdscloud.github.io/website/docs/grds-client/restore/cluster/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/restore/cluster/</guid><description>
+&lt;h4 id="restore-cluster">Restore Cluster&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds restore cluster &amp;lt;restoreClusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cpu&lt;/td>
+&lt;td>Set the number of millicores to request for the CPU, e.g. &amp;ldquo;100m&amp;rdquo; or &amp;ldquo;0.1&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;cpu-limit&lt;/td>
+&lt;td>Set the number of millicores to limit for the CPU, e.g. &amp;ldquo;100m&amp;rdquo; or &amp;ldquo;0.1&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;labels&lt;/td>
+&lt;td>The labels to apply to this cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;memory&lt;/td>
+&lt;td>Set the amount of RAM to request, e.g. 1GiB. Overrides the default server value&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;memory-limit&lt;/td>
+&lt;td>Set the amount of RAM to limit, e.g. 1GiB.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;pvc-size&lt;/td>
+&lt;td>The size of the PVC capacity for Database instances. Must follow the standard Kubernetes format, e.g. &amp;ldquo;10.1Gi&amp;rdquo; (default &amp;ldquo;10Gi&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;backup-name&lt;/td>
+&lt;td>The backup name that you want to restore.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;restore-method&lt;/td>
+&lt;td>The restore method that you want to restore, e.g. PointInTime/BackupSet.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;backup-set-id&lt;/td>
+&lt;td>If use BackupSet method, Specify a backup set that you need to restore.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;point-in-time&lt;/td>
+&lt;td>If use PointInTime method, Specify a time point that you need to restore.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Restore a cluster named restore-cluster use BackupSet method from backup [my-backup-test]&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds restore cluster restore-cluster --backup-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-backup-test --restore-method&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>BackupSet --backup-set-id&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-backup-test-full-gl22d-1608274200 --cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>0.5 --cpu-limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>2Gi --memory-limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>2Gi --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>21Gi -n&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>grds
+Cluster restored, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>restore-cluster&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>default&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#204a87">type&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>mysql&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Create MySQL User</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/add/</guid><description>
 &lt;h4 id="create-cluster-user">Create Cluster User&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
@@ -357,6 +416,14 @@ $ grds mysql show my-cluster-test -w table
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> standby &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +--------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
 $
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Get Recoverable Time</title><link>https://grdscloud.github.io/website/docs/grds-client/restore/get-recoverable-time/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/restore/get-recoverable-time/</guid><description>
+&lt;h4 id="get-crecoverable-time">Get CRecoverable Time&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds restore get-recoverable-time &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Get recoverable time from backup [my-backup-test]&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds restore get-recoverable-time my-backup-test -n&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>grds
+Recoverable Time, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-backup-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#204a87">time&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>2020-12-18 14:50:05 ~ 2020-12-18 15:43:36&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Authorize the database to the user</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/grant/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/grant/</guid><description>
 &lt;h3 id="authorize-the-database-to-the-user">Authorize the database to the user&lt;/h3>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>

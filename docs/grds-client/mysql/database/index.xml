@@ -1,0 +1,44 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – Grds MySQL Database Command</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/</link><description>Recent content in Grds MySQL Database Command on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://grdscloud.github.io/website/docs/grds-client/mysql/database/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Create MySQL Database</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/database/add/</guid><description>
+&lt;h4 id="create-cluster-database">Create Cluster Database&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql db add &amp;lt;user&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;character-set&lt;/td>
+&lt;td>Set the character set of database (default &amp;ldquo;utf8&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql db add &lt;span style="color:#204a87">test&lt;/span> --character-set&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>utf8 --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL schema created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> characterSet &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>utf8&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: List MySQL Database</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/database/list/</guid><description>
+&lt;h4 id="list-cluster-database">List Cluster Database&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql db list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>List all database on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql db list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++----------+------+-----------+--------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> CHARACTERSET &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------+------+-----------+--------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> utf8 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------+------+-----------+--------------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Delete MySQL Database</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/database/delete/</guid><description>
+&lt;h4 id="delete-cluster-database">Delete Cluster Database&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql db delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Delete a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql db delete &lt;span style="color:#204a87">test&lt;/span> --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL schema deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

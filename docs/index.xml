@@ -100,6 +100,41 @@ Backup created success, name: &lt;span style="color:#ce5c00;font-weight:bold">[&
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>need command!!!&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a incremental backup task ==incremental-task== for ==my-cluster-test== in the grds namespace&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>need command!!!&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Create MySQL Database</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/database/add/</guid><description>
+&lt;h4 id="create-cluster-database">Create Cluster Database&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql db add &amp;lt;user&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;character-set&lt;/td>
+&lt;td>Set the character set of database (default &amp;ldquo;utf8&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql db add &lt;span style="color:#204a87">test&lt;/span> --character-set&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>utf8 --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL schema created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> characterSet &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>utf8&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: List MySQL Database</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/database/list/</guid><description>
+&lt;h4 id="list-cluster-database">List Cluster Database&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql db list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>List all database on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql db list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++----------+------+-----------+--------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> CHARACTERSET &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------+------+-----------+--------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> utf8 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------+------+-----------+--------------+
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Add</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/add/</guid><description>
 &lt;h4 id="create-cluster">Create Cluster&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
@@ -194,6 +229,41 @@ MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&l
 +-----------------+-----------+---------+-------+-----------+-----------------+-------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30442&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------------+-----------+---------+-------+-----------+---------+-------+-------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Create MySQL User</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/add/</guid><description>
+&lt;h4 id="create-cluster-user">Create Cluster User&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql user add &amp;lt;user&amp;gt; &amp;lt;passwd&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;high&lt;/td>
+&lt;td>Create mysql high privilege user.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a user named &lt;em>bzy&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql user add bzy &lt;span style="color:#0000cf;font-weight:bold">123456&lt;/span> --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: List MySQL User</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/list/</guid><description>
+&lt;h4 id="list-cluster-user">List Cluster User&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql user list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>List all user on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql user list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> HIGH-PRIV &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Full Backup Manually</title><link>https://grdscloud.github.io/website/docs/grds-client/backup/manual-full-job/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/backup/manual-full-job/</guid><description>
 &lt;h4 id="create-a-full-backup-job-manually">Create A Full Backup Job Manually&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
@@ -287,6 +357,20 @@ $ grds mysql show my-cluster-test -w table
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> standby &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +--------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
 $
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Authorize the database to the user</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/grant/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/grant/</guid><description>
+&lt;h3 id="authorize-the-database-to-the-user">Authorize the database to the user&lt;/h3>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql user grant &amp;lt;user&amp;gt; &amp;lt;database&amp;gt; &amp;lt;ro/rw&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Grant users &lt;em>bzy&lt;/em> to read and write the database &lt;em>test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql user grant bzy &lt;span style="color:#204a87">test&lt;/span> rw --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user granted, user &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> database&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> privilege &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>rw&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+$ grds mysql user list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> HIGH-PRIV &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> rw &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup List</title><link>https://grdscloud.github.io/website/docs/grds-client/backup/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/backup/list/</guid><description>
 &lt;h4 id="list-backup">List Backup&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
@@ -347,6 +431,20 @@ VOLUME
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-d3928c72-49bb-4c9e-aa45-bfa3ff0cae3c_grds_data-my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-a1657f5d-c722-4315-97f1-b95838b1e85c_grds_data-my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Revoke User Privileges</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/revoke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/revoke/</guid><description>
+&lt;h4 id="revoke-user-privileges">Revoke User Privileges&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql user revoke &amp;lt;user&amp;gt; &amp;lt;database&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Revoke users &lt;em>bzy&lt;/em> to read and write the database &lt;em>test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql user revoke bzy &lt;span style="color:#204a87">test&lt;/span> --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user revoked, user &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> database&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+$ grds mysql user list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> HIGH-PRIV &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Update</title><link>https://grdscloud.github.io/website/docs/grds-client/backup/update/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/backup/update/</guid><description>
 &lt;h4 id="update-backup">Update Backup&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
@@ -434,6 +532,14 @@ VOLUME
 &lt;p>Update a backup&amp;rsquo;s full backup schedule that named my-backup-test&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds backup update my-backup-test --full-backup-schedule&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;0 1 * * *&amp;#34;&lt;/span>
 Backup updated, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-backup-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>grds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Delete MySQL Database</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/database/delete/</guid><description>
+&lt;h4 id="delete-cluster-database">Delete Cluster Database&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql db delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Delete a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql db delete &lt;span style="color:#204a87">test&lt;/span> --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL schema deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Delete</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/delete/</guid><description>
 &lt;h4 id="delete-cluster">Delete Cluster&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
@@ -461,6 +567,14 @@ Backup updated, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span
 &lt;p>Delete ==my-cluster-test== cluster under grds namespace&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql-cluster delete my-cluster-test -n grds
 MySQL cluster deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-cluster-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>grds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Delete MySQL User</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/delete/</guid><description>
+&lt;h4 id="delete-cluster-user">Delete Cluster User&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql user delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Delete a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql user delete bzy --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Delete</title><link>https://grdscloud.github.io/website/docs/grds-client/backup/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/backup/delete/</guid><description>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds backup delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>

@@ -218,4 +218,94 @@ VOLUME
 &lt;p>Delete ==my-cluster-test== cluster under grds namespace&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql-cluster delete my-cluster-test -n grds
 MySQL cluster deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-cluster-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>grds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Database Command</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/database/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/database/</guid><description>
+&lt;h3 id="mysql-database-management">MySQL Database Management&lt;/h3>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql db &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Command&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>COMMAND&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>add&lt;/td>
+&lt;td>Add a database into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>delete&lt;/td>
+&lt;td>Delete database into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>list&lt;/td>
+&lt;td>List database in the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cluster-name&lt;/td>
+&lt;td>The name of the cluster you want to access&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Docs: Grds MySQL User Command</title><link>https://grdscloud.github.io/website/docs/grds-client/mysql/user/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/grds-client/mysql/user/</guid><description>
+&lt;h3 id="mysql-user-management">MySQL User Management&lt;/h3>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">grds mysql user &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Command&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>COMMAND&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>add&lt;/td>
+&lt;td>Add a user into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>delete&lt;/td>
+&lt;td>Delete user into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>list&lt;/td>
+&lt;td>List user in the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>grant&lt;/td>
+&lt;td>List user in the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>revoke&lt;/td>
+&lt;td>Revoke user privelege for database&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cluster-name&lt;/td>
+&lt;td>The name of the cluster you want to access&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

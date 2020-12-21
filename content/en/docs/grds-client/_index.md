@@ -13,6 +13,7 @@ description: >
 | ------------- | ---------------------------------- |
 | mysql | MySQL Cluster Lifecycle Management |
 | backup | Backup Lifecycle Management |
+| restore | Restore Lifecycle Management |
 
 **Flag**：
 

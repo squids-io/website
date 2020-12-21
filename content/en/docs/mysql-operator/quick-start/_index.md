@@ -119,6 +119,15 @@ EOF
 source ~/.bash_profile
 ```
 
+Finally, In order to communicate with the Operator API server, you will first need to set up a port forward to your local environment.
+
+In a new console window, run the following command to set up a port forward:
+
+```
+kubectl -n grds port-forward svc/mysql-operator 8443:8443
+```
+
+
 ### Create a MySQL Cluster using grds CLI tool
 
 1. **Create database**

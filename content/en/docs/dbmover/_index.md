@@ -32,9 +32,8 @@ In this mode,you should collect every pod's migrate status to get a summary view
 # Quick Start
 
 #### Get dbmover for MySQL
-- Download [dbmover_for_linux](https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_linux)
-- Download [dbmover_for_mac](https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_mac)
-
+- Download <a href="https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_linux">dbmover_for_linux</a>
+- Download <a href="https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_mac">dbmover_for_mac</a>
 
 
 

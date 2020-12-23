@@ -94,7 +94,13 @@ source ~/.bash_profile
 &lt;p>In a new console window, run the following command to set up a port forward:&lt;/p>
 &lt;pre>&lt;code>kubectl -n grds port-forward svc/mysql-operator 8443:8443
 &lt;/code>&lt;/pre>&lt;h3 id="create-a-mysql-cluster-using-grds-cli-tool">Create a MySQL Cluster using grds CLI tool&lt;/h3>
-&lt;ol>
+&lt;blockquote>
+&lt;p>Before creating a database cluster, please confirm that there is a default &lt;a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">storage class&lt;/a> in your kuberneter environment.
+You can choose to use local volumes to provide persistent storage&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+kubectl patch storageclass local-path -p &lt;span style="color:#4e9a06">&amp;#39;{&amp;#34;metadata&amp;#34;: {&amp;#34;annotations&amp;#34;:{&amp;#34;storageclass.kubernetes.io/is-default-class&amp;#34;:&amp;#34;true&amp;#34;}}}&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>&lt;strong>Create database&lt;/strong>&lt;/li>
 &lt;/ol>
 &lt;p>Example 1:
@@ -112,9 +118,8 @@ MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&l
 &lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
 &lt;li>&lt;strong>Add admin user&lt;/strong>&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql add user mysql-cluster-name &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --username&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mymanager1 --password&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>xnhhujmki09KU -n grds
-MySQL user created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>mymanager1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> password: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>xnhhujmki09KU&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>grds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql user add mymanager1 xnhhujmki09KU --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mysql-cluster-name --high
+MySQL user created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>mymanager1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="connect-to-mysql-cluster">Connect to MySQL Cluster&lt;/h2>
 &lt;ol>
 &lt;li>&lt;strong>Get connect information&lt;/strong>&lt;/li>

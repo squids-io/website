@@ -130,6 +130,14 @@ kubectl -n grds port-forward svc/mysql-operator 8443:8443
 
 ### Create a MySQL Cluster using grds CLI tool
 
+> Before creating a database cluster, please confirm that there is a default [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) in your kubernetes environment. 
+>
+> You also can choose to use [local volumes](https://github.com/rancher/local-path-provisioner) to provide persistent storage if you not any default storage:
+> ```shell script
+> kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+> kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+> ```
+
 1. **Create database**
 
 Example 1:
@@ -153,10 +161,9 @@ MySQL cluster created, name: [my-hacluster] namespace [grds].
 ```
 
 2. **Add admin user**
-```shell
-$ grds mysql add user mysql-cluster-name \
-  --username=mymanager1 --password=xnhhujmki09KU -n grds
-MySQL user created, name: [mymanager1] password: [xnhhujmki09KU] namespace: [grds].
+```shell 
+$ grds mysql user add mymanager1 xnhhujmki09KU --cluster-name=mysql-cluster-name --high
+MySQL user created, name: [mymanager1].
 ```
 
 

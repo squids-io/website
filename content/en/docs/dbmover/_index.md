@@ -8,6 +8,8 @@ description: >
 
 # DBMover for MySQL
 
+a light and smart database migration tool,no installtion.
+
 DBMover is a database migration tool for developers and DBA,you can use it to migrate object structure and data between MySQL databases.
 
 # Key Feature
@@ -32,8 +34,9 @@ In this mode,you should collect every pod's migrate status to get a summary view
 # Quick Start
 
 #### Get dbmover for MySQL
-- Download <a href="https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_linux"  style="text-decoration:underline;;color:blue">dbmover_for_linux</a>
-- Download <a href="https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_mac"  style="text-decoration:underline;;color:blue" >dbmover_for_mac</a>
+- Download [dbmover_for_linux](https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_linux)
+- Download [dbmover_for_mac](https://grdscloud.github.io/website/download/dbmover/1.0.0/dbmover_for_mac)
+
 
 
 
@@ -84,7 +87,25 @@ flush privileges;
 		  --move-model=all --exists-handle=ignore --do-truncate=n
 ```
 
-#### View migrate prograss and status
+- export table data to textfile,with column separator ',' and line breaker '\n'(default)
+```
+#export data will ignore --target-dbstring option,just write data to --data-dir
+#this example is exporting all tables in saledb and orderdb
+./dbmover --source-dbstring=dbuser/pwd@10.10.98.232:3306 /
+	   --export-data=y --file-format=text --column-separator=, /
+	   --data-dir=/tmp/backupdir --schemas=saledb,orderdb
+```
+
+- export table data to parquet file
+```
+# you can also define parquet rowgroup size,compresstype,and file size
+#this example is exporting all tables in saledb and orderdb
+./dbmover --source-dbstring=dbuser/pwd@10.10.98.232:3306 /
+	   --export-data=y --file-format=parquet /
+	   --data-dir=/tmp/backupdir --schemas=saledb,orderdb
+```
+
+#### View migrate prograss and result
 - get migrate result,you can supply summary/detail args
 
 ```
@@ -120,33 +141,51 @@ before your  migration,you can use --only-check to pre-check source/target envir
 
 
 parameter | description
----|--- 
+---|---
+**ConnectDB**|
 --source-dbstring | source db connect string: username/pwd@192.168.0.1:3306
 --target-dbstring | target db connect string: username/pwd@192.168.0.1:3306
 --enable-ssl-source | enable source SSL connect (default n)
 --enable-ssl-target | enable target SSL connect (default n)
 --ssl-cafile-source | source SSL CA file path
 --ssl-cafile-target | target SSL CA file path
---only-check | n \| y,only check the migrating conditions and give you a checklist,do not migrate anything (default "n")
+**WorkSetting**|
+--work-threads | number of working thread,max value 48 (default 4)
+--max-connections | max source or target database connections,max value 64 (default 8)
+--split-rowcount | special table split size,used for parallel moving a table data,max 99999999 (default 50000)
+--commit-batchsize | batch commitsize for target table rows insert/merge,max 50000 (default 200)
+--fetch-batchsize | batch fetchsize for source table rows,max 100000 (default 10000)
+**MigrateOption**|
 --move-model | onlydata \| onlymeta \| all, you can choose move table data,object structure or both (default "onlydata")
---exists-handle | ignore \| drop,used for onlymeta\|all model,when target object exists (default "ignore")
 --do-truncate | n \| y,truncate target table before data moving (default "n")
+--exists-handle | ignore \| drop,used for onlymeta\|all model,when target object exists (default "ignore")
+--count-model | estimate \| count,the way we get a table row count (default "estimate")
 --enable-merge | n \| y,enable replace/merge to target table,if table has no PK/UK,it will run in insert mode (default "n")
+--only-check | n \| y,only check the migrating conditions and give you a checklist,do not migrate anything (default "n")
+--get-result | summary \| detail,get moving prograss and error status
+**MigrateObjects**|
 --tables | use comma to split tables,colon to map table,for example --tables=sc1.table1,sc1.table2,sc1.tableA:sc1.tableC
 --triggers | special the trigger list
 --views | special the view list
 --procedures | special the procedure list
 --schemas | special the schema list,it will ignore tables/triggers/procedures/views option
---work-threads | number of working thread,max value 48 (default 4)
---max-connections | max source or target database connections,max value 64 (default 8)
---count-model | estimate \| count,the way we get a table row count (default "estimate")
---split-rowcount | special table split size,used for parallel moving a table data,max 999999 (default 50000)
---commit-batchsize | batch commitsize for target table rows insert/merge,max 50000 (default 200)
---fetch-batchsize | batch fetchsize for source table rows,max 100000 (default 10000)
+**ExportData**|
+--export-data    |    n \| y,export data to filesystem (default n)
+--data-dir       |    special output data directory (default ./)
+--file-format    |    text \| parquet,special output file format (default text)
+--column-separator |  visible & invisible characters，such as \t or x07 or , (default \t)
+--line-breaker   |    visible & invisible characters，such as \n or x08 (default \n)
+--file-encoding   |   special datafile character encoding (default utf8)
+--parquet-rgsizeMB |  special row group size in MB (default 128)
+--parquet-pageKB   |  special page size in KB (default 8)
+--parquet-compress |  gzip \| lz4 \| snappy \| uncompress,special compress type (default gzip)
+--parquet-filerows |  special every parquet file rows (default 1000000)
+**Input/Output**|
 --json-file | use jsonfile to special move objects,this option will ignore objects/schemas option
 --json-model | object \| schema,special jsonfile content is about objects or whole schemas,must be used with --json-file
---get-result | summary \| detail,get moving prograss and error status
 --log-output | console \| file,log output model,the file is dbmover.log (default "console")
+
+
 
 
 # Little tips about dbmover
@@ -172,6 +211,9 @@ finally each slice will have its own data range.
 #### About --count-model and EstimateRows,SyncedRows
 Default --count-model=estimate,this is a fast way to sample table rowcount,
 but the result is not exactly，another option is count,slowly but exactly,we recommend using estimate to speed up your sample prograss.If the changes on source table haven't stopped, whatever option you choose,EstimateRows will hardly equel to SyncedRows.
+
+#### support export data to textfile or parquet file
+You can use --export-data to enable data export,now we support text and parquet,you can define the column-separator,line-breaker,and parquet file config,dbmover will create file directory,split files.
 
 #### JSON input support
 You can use --json-file and --json-model to special input args,here is the JSON example
@@ -223,7 +265,7 @@ timestamp | yes
 - unexpected EOF/busy buffer
 
 ```
-# sometimes you may encounter error,it means that migration get failed
+# sometimes you may encounter this error,it means that migration get failed
 # make sure the network throughtput between your source/target database and dbmover host is good
 # truncate target data and retry your migration
 [mysql] 2020/11/09 17:38:50 packets.go:72: unexpected EOF
@@ -241,7 +283,7 @@ dbmover use Select SQL to get source table data,do not capture data changing dur
 we suggest you stop source application before your migration,or you will get inconsistent data.
 ```
 
-
+- not support export data to parquet file when contains double quotation marks
 
 
 

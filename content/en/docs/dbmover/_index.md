@@ -31,6 +31,9 @@ DBMover supply kinds of args to run migrate job,you can migrate table/view/proce
 You can run dbmover in k8s or k3s platform,supply different tablelist args to each dbmover pod,it's really a parallel working model across multiple hosts.
 In this mode,you should collect every pod's migrate status to get a summary view by yourself.
 
+#### HDFS parquet file and text file support
+You can use dbmover to export database data to hdfs or local filesystem,support parquet and text format.
+
 # Quick Start
 
 #### Get dbmover for MySQL
@@ -96,12 +99,10 @@ flush privileges;
 	   --data-dir=/tmp/backupdir --schemas=saledb,orderdb
 ```
 
-- export table data to parquet file
+- export table data to hdfs parquetfile(if not special --to-hdfs,file will be created to local filesystem):
 ```
-# you can also define parquet rowgroup size,compresstype,and file size
-#this example is exporting all tables in saledb and orderdb
 ./dbmover --source-dbstring=dbuser/pwd@10.10.98.232:3306 /
-	   --export-data=y --file-format=parquet /
+	   --export-data=y --file-format=parquet --to-hdfs=hdfsuser@192.168.0.1:9000 /
 	   --data-dir=/tmp/backupdir --schemas=saledb,orderdb
 ```
 
@@ -180,6 +181,7 @@ parameter | description
 --parquet-pageKB   |  special page size in KB (default 8)
 --parquet-compress |  gzip \| lz4 \| snappy \| uncompress,special compress type (default gzip)
 --parquet-filerows |  special every parquet file rows (default 1000000)
+--to-hdfs          |  write file to hdfs,special hdfs namenode connect string,for example hdfsuser@192.168.0.1:9000
 **Input/Output**|
 --json-file | use jsonfile to special move objects,this option will ignore objects/schemas option
 --json-model | object \| schema,special jsonfile content is about objects or whole schemas,must be used with --json-file
@@ -284,6 +286,10 @@ we suggest you stop source application before your migration,or you will get inc
 ```
 
 - not support export data to parquet file when contains double quotation marks
+
+
+
+
 
 
 

@@ -31,7 +31,7 @@ DBMover supply kinds of args to run migrate job,you can migrate table/view/proce
 You can run dbmover in k8s or k3s platform,supply different tablelist args to each dbmover pod,it's really a parallel working model across multiple hosts.
 In this mode,you should collect every pod's migrate status to get a summary view by yourself.
 
-#### HDFS parquet file and text file support
+#### Parquet format and HDFS support
 You can use dbmover to export database data to hdfs or local filesystem,support parquet and text format.
 
 # Quick Start

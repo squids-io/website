@@ -143,20 +143,20 @@ before your  migration,you can use --only-check to pre-check source/target envir
 
 parameter | description
 ---|---
-**ConnectDB**|
+**ConnectDB**| x
 --source-dbstring | source db connect string: username/pwd@192.168.0.1:3306
 --target-dbstring | target db connect string: username/pwd@192.168.0.1:3306
 --enable-ssl-source | enable source SSL connect (default n)
 --enable-ssl-target | enable target SSL connect (default n)
 --ssl-cafile-source | source SSL CA file path
 --ssl-cafile-target | target SSL CA file path
-**WorkSetting**|
+**WorkSetting**| x
 --work-threads | number of working thread,max value 48 (default 4)
 --max-connections | max source or target database connections,max value 64 (default 8)
 --split-rowcount | special table split size,used for parallel moving a table data,max 99999999 (default 50000)
 --commit-batchsize | batch commitsize for target table rows insert/merge,max 50000 (default 200)
 --fetch-batchsize | batch fetchsize for source table rows,max 100000 (default 10000)
-**MigrateOption**|
+**MigrateOption**| x
 --move-model | onlydata \| onlymeta \| all, you can choose move table data,object structure or both (default "onlydata")
 --do-truncate | n \| y,truncate target table before data moving (default "n")
 --exists-handle | ignore \| drop,used for onlymeta\|all model,when target object exists (default "ignore")
@@ -164,13 +164,13 @@ parameter | description
 --enable-merge | n \| y,enable replace/merge to target table,if table has no PK/UK,it will run in insert mode (default "n")
 --only-check | n \| y,only check the migrating conditions and give you a checklist,do not migrate anything (default "n")
 --get-result | summary \| detail,get moving prograss and error status
-**MigrateObjects**|
+**MigrateObjects**| x
 --tables | use comma to split tables,colon to map table,for example --tables=sc1.table1,sc1.table2,sc1.tableA:sc1.tableC
 --triggers | special the trigger list
 --views | special the view list
 --procedures | special the procedure list
 --schemas | special the schema list,it will ignore tables/triggers/procedures/views option
-**ExportData**|
+**ExportData**| x
 --export-data    |    n \| y,export data to filesystem (default n)
 --data-dir       |    special output data directory (default ./)
 --file-format    |    text \| parquet,special output file format (default text)
@@ -182,7 +182,7 @@ parameter | description
 --parquet-compress |  gzip \| lz4 \| snappy \| uncompress,special compress type (default gzip)
 --parquet-filerows |  special every parquet file rows (default 1000000)
 --to-hdfs          |  write file to hdfs,special hdfs namenode connect string,for example hdfsuser@192.168.0.1:9000
-**Input/Output**|
+**Input/Output**| x
 --json-file | use jsonfile to special move objects,this option will ignore objects/schemas option
 --json-model | object \| schema,special jsonfile content is about objects or whole schemas,must be used with --json-file
 --log-output | console \| file,log output model,the file is dbmover.log (default "console")

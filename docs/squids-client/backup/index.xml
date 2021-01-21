@@ -1,0 +1,269 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – Grds Backup Command</title><link>https://squids-io.github.io/website/docs/squids-client/backup/</link><description>Recent content in Grds Backup Command on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/squids-client/backup/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Grds Backup Create</title><link>https://squids-io.github.io/website/docs/squids-client/backup/create/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/create/</guid><description>
+&lt;h4 id="create-backup">Create Backup&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup create &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cluster-name&lt;/td>
+&lt;td>the cluster name that need to backup&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;db-type&lt;/td>
+&lt;td>the cluster&amp;rsquo;s db type(mysql, mssql) (default mysql)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;full-backup-schedule&lt;/td>
+&lt;td>the cron expression of backup to take a full backup schedule. (default &amp;ldquo;0 0 * * *&amp;quot;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;incremental-backup-schedule&lt;/td>
+&lt;td>the cron expression of backup to take an incremental backup schedule. (default &amp;ldquo;0 6,12,18 * * *&amp;quot;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;clean-backup-schedule&lt;/td>
+&lt;td>the cron expression of backup to take a clean backup schedule. (default &amp;ldquo;0 21 * * *&amp;quot;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;retention-policy&lt;/td>
+&lt;td>retention policy of current backup set, e.g. FullBackupSetNumber/ExpireDuration. (default &amp;ldquo;FullBackupSetNumber&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;full-backup-set-retention-number&lt;/td>
+&lt;td>number of reserved full backup sets. (default 10)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;backup-set-expire-duration&lt;/td>
+&lt;td>the expiration time of the backup set. (default &amp;ldquo;7d&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;storage-interface-type&lt;/td>
+&lt;td>the storage interface type for store backup set, e.g. nas/s3. (default &amp;ldquo;nas&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nas-protocol&lt;/td>
+&lt;td>the protocol for store backup set. (default &amp;ldquo;nfs&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-name&lt;/td>
+&lt;td>the name of storage interface.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-backup-path&lt;/td>
+&lt;td>the nfs backup path for store backup set.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-address&lt;/td>
+&lt;td>the nfs host ip.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-port&lt;/td>
+&lt;td>the nfs storage interface port. (default 2049)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-username&lt;/td>
+&lt;td>the nfs username.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-password&lt;/td>
+&lt;td>the nfs password.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;aws-access-key-id&lt;/td>
+&lt;td>the aws s3 access key id.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;aws-secret-access-key&lt;/td>
+&lt;td>the aws s3 secret access key.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;aws-endpoint&lt;/td>
+&lt;td>the aws s3 endpoint.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a backup task ==my-backup-test== for ==my-cluster-test== in the squids namespace,
+the task will run under the default backup schedule&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl backup create my-backup-test --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test --db-type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mysql &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --storage-interface-type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nas --nas-protocol&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nfs --nfs-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mynfs --nfs-address&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10.10.120.201 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --nfs-backup-path&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/backup/data/nfs --nfs-port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2049&lt;/span>
+Backup created success, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-backup-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a full backup task ==fullbackup-task== for ==my-cluster-test== in the squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>need command!!!&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a incremental backup task ==incremental-task== for ==my-cluster-test== in the squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>need command!!!&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Full Backup Manually</title><link>https://squids-io.github.io/website/docs/squids-client/backup/manual-full-job/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/manual-full-job/</guid><description>
+&lt;h4 id="create-a-full-backup-job-manually">Create A Full Backup Job Manually&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup manual-full-job &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;backup-name&lt;/td>
+&lt;td>The backup name that you want to create backup job manually.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a full backup job manually for my-cluster-test under squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl backup manual-full-job --backup-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-backup-test
+Manual backup Job created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-backup-test-full--test-1606909374&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup List</title><link>https://squids-io.github.io/website/docs/squids-client/backup/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/list/</guid><description>
+&lt;h4 id="list-backup">List Backup&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;all, -A&lt;/td>
+&lt;td>shows all mysql clusters&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;selector&lt;/td>
+&lt;td>selector of the backup to list&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>List all backup under squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl backup list -A -w table
++----------------+-----------+-----------------+----------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> CLUSTERNAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> STORAGEINTERFACETYPE &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------------+-----------+-----------------+----------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-backup-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> nas &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------------+-----------+-----------------+----------------------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Update</title><link>https://squids-io.github.io/website/docs/squids-client/backup/update/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/update/</guid><description>
+&lt;h4 id="update-backup">Update Backup&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup update &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;full-backup-schedule&lt;/td>
+&lt;td>the cron expression of backup to take a full backup schedule. (default &amp;ldquo;0 0 * * *&amp;quot;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;incremental-backup-schedule&lt;/td>
+&lt;td>the cron expression of backup to take an incremental backup schedule. (default &amp;ldquo;0 6,12,18 * * *&amp;quot;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;clean-backup-schedule&lt;/td>
+&lt;td>the cron expression of backup to take a clean backup schedule. (default &amp;ldquo;0 21 * * *&amp;quot;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;retention-policy&lt;/td>
+&lt;td>retention policy of current backup set, e.g. FullBackupSetNumber/ExpireDuration. (default &amp;ldquo;FullBackupSetNumber&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;full-backup-set-retention-number&lt;/td>
+&lt;td>number of reserved full backup sets. (default 10)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;backup-set-expire-duration&lt;/td>
+&lt;td>the expiration time of the backup set. (default &amp;ldquo;7d&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;storage-interface-type&lt;/td>
+&lt;td>the storage interface type for store backup set, e.g. nas/s3. (default &amp;ldquo;nas&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nas-protocol&lt;/td>
+&lt;td>the protocol for store backup set. (default &amp;ldquo;nfs&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-name&lt;/td>
+&lt;td>the name of storage interface.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-backup-path&lt;/td>
+&lt;td>the nfs backup path for store backup set.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-address&lt;/td>
+&lt;td>the nfs host ip.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-port&lt;/td>
+&lt;td>the nfs storage interface port. (default 2049)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-username&lt;/td>
+&lt;td>the nfs username.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;nfs-password&lt;/td>
+&lt;td>the nfs password.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;aws-access-key-id&lt;/td>
+&lt;td>the aws s3 access key id.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;aws-secret-access-key&lt;/td>
+&lt;td>the aws s3 secret access key.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;aws-endpoint&lt;/td>
+&lt;td>the aws s3 endpoint.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Update a backup&amp;rsquo;s full backup schedule that named my-backup-test&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl backup update my-backup-test --full-backup-schedule&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;0 1 * * *&amp;#34;&lt;/span>
+Backup updated, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-backup-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Delete</title><link>https://squids-io.github.io/website/docs/squids-client/backup/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/delete/</guid><description>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;all&lt;/td>
+&lt;td>Delete all clusters under the specified namespace.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;selector&lt;/td>
+&lt;td>The selector to use for delete cluster filtering&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Delete my-cluster-test cluster under squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql-cluster delete my-cluster-test -n squids
+MySQL cluster deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-cluster-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

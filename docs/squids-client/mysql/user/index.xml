@@ -1,0 +1,72 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – Grds MySQL User Command</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/user/</link><description>Recent content in Grds MySQL User Command on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/squids-client/mysql/user/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Create MySQL User</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/user/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/user/add/</guid><description>
+&lt;h4 id="create-cluster-user">Create Cluster User&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql user add &amp;lt;user&amp;gt; &amp;lt;passwd&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;high&lt;/td>
+&lt;td>Create mysql high privilege user.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a user named &lt;em>bzy&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql user add bzy &lt;span style="color:#0000cf;font-weight:bold">123456&lt;/span> --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: List MySQL User</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/user/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/user/list/</guid><description>
+&lt;h4 id="list-cluster-user">List Cluster User&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql user list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>List all user on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql user list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> HIGH-PRIV &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Authorize the database to the user</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/user/grant/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/user/grant/</guid><description>
+&lt;h3 id="authorize-the-database-to-the-user">Authorize the database to the user&lt;/h3>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql user grant &amp;lt;user&amp;gt; &amp;lt;database&amp;gt; &amp;lt;ro/rw&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Grant users &lt;em>bzy&lt;/em> to read and write the database &lt;em>test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql user grant bzy &lt;span style="color:#204a87">test&lt;/span> rw --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user granted, user &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> database&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> privilege &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>rw&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+$ squidsctl mysql user list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> HIGH-PRIV &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> rw &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Revoke User Privileges</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/user/revoke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/user/revoke/</guid><description>
+&lt;h4 id="revoke-user-privileges">Revoke User Privileges&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql user revoke &amp;lt;user&amp;gt; &amp;lt;database&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Revoke users &lt;em>bzy&lt;/em> to read and write the database &lt;em>test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql user revoke bzy &lt;span style="color:#204a87">test&lt;/span> --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user revoked, user &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> database&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+$ squidsctl mysql user list --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> USER &lt;span style="color:#000;font-weight:bold">|&lt;/span> DATABASE &lt;span style="color:#000;font-weight:bold">|&lt;/span> PRIVILEGE &lt;span style="color:#000;font-weight:bold">|&lt;/span> HIGH-PRIV &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------+----------+-----------+-----------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Delete MySQL User</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/user/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/user/delete/</guid><description>
+&lt;h4 id="delete-cluster-user">Delete Cluster User&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql user delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Delete a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql user delete bzy --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
+MySQL user deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

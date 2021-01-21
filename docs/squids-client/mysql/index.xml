@@ -1,0 +1,311 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – Grds MySQL Command</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/</link><description>Recent content in Grds MySQL Command on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/squids-client/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Grds MySQL Add</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/add/</guid><description>
+&lt;h4 id="create-cluster">Create Cluster&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql add &amp;lt;clusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th style="text-align:left">DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cpu&lt;/td>
+&lt;td style="text-align:left">Set the number of millicores to request for the CPU, e.g. &amp;ldquo;100m&amp;rdquo; or &amp;ldquo;0.1&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;cpu-limit&lt;/td>
+&lt;td style="text-align:left">Set the number of millicores to limit for the CPU, e.g. &amp;ldquo;100m&amp;rdquo; or &amp;ldquo;0.1&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;labels&lt;/td>
+&lt;td style="text-align:left">The labels to apply to this cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;memory&lt;/td>
+&lt;td style="text-align:left">Set the amount of RAM to request, e.g. 1GiB. Overrides the default server value&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;memory-limit&lt;/td>
+&lt;td style="text-align:left">Set the amount of RAM to limit, e.g. 1GiB.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;pvc-size&lt;/td>
+&lt;td style="text-align:left">The size of the PVC capacity for Database instances. Must follow the standard Kubernetes format, e.g. &amp;ldquo;10.1Gi&amp;rdquo; (default &amp;ldquo;10Gi&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;replica-count&lt;/td>
+&lt;td style="text-align:left">The number of primary candidate to create as part of the cluster. (default 2)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;slave-count&lt;/td>
+&lt;td style="text-align:left">The number of slave to create as part of the cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;version&lt;/td>
+&lt;td style="text-align:left">the version of mysql databse, e.g. 5.6/5.7/8.0 (default &amp;ldquo;5.7&amp;rdquo;)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Create a MySQL cluster &lt;code>my-cluster-test&lt;/code> with 2 primary candidate,1 read-only slave in squids namespace,
+max 2 vCPU,2GB memory&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql add my-cluster-test &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>0.5 --cpu-limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>2Gi --memory-limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>2Gi &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10Gi --replica-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -n squids
+MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-cluster-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a single instance MySQL 8.0 &lt;code>my-single&lt;/code> in squids namespace,CPU/memory is unlimited.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql add my-single &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10Gi --replica-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> -n squids --version&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8.0
+MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-single&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL List</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/list/</guid><description>
+&lt;h4 id="list-cluster">List Cluster&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;all&lt;/td>
+&lt;td>shows all mysql clusters&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;selector&lt;/td>
+&lt;td>selector of the mysql cluster to list&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>List all mysql cluster under squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql list --all -n squids -w table
+&amp;gt; Note: AccessIP is the access entrance of database cluster,firstly use a LoadBalanceIP,if LoadBalanceIP is null,use MasterNodeIP
++-----------------+-----------+---------+-------+-----------+-----------------+-------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> REPLICA &lt;span style="color:#000;font-weight:bold">|&lt;/span> SLAVE &lt;span style="color:#000;font-weight:bold">|&lt;/span> STATUS &lt;span style="color:#000;font-weight:bold">|&lt;/span> ACCESSIP &lt;span style="color:#000;font-weight:bold">|&lt;/span> PORT &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------------+-----------+---------+-------+-----------+-----------------+-------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30442&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------------+-----------+---------+-------+-----------+---------+-------+-------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Update</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/update/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/update/</guid><description>
+&lt;h4 id="update-cluster">Update Cluster&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql update &amp;lt;clusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th style="text-align:left">DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cpu&lt;/td>
+&lt;td style="text-align:left">Set the number of millicores to request for the CPU, e.g. &amp;ldquo;100m&amp;rdquo; or &amp;ldquo;0.1&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;cpu-limit&lt;/td>
+&lt;td style="text-align:left">Set the number of millicores to limit for the CPU, e.g. &amp;ldquo;100m&amp;rdquo; or &amp;ldquo;0.1&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;memory&lt;/td>
+&lt;td style="text-align:left">Set the amount of RAM to request, e.g. 1GiB. Overrides the default server value&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;memory-limit&lt;/td>
+&lt;td style="text-align:left">Set the amount of RAM to limit, e.g. 1GiB.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;pvc-size&lt;/td>
+&lt;td style="text-align:left">The size of the PVC capacity for Database instances. Must follow the standard Kubernetes format, e.g. &amp;ldquo;10.1Gi&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;replica-count&lt;/td>
+&lt;td style="text-align:left">The number of primary candidate to create as part of the cluster.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;slave-count&lt;/td>
+&lt;td style="text-align:left">The number of slave to create as part of the cluster&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Online add a slave to mysql-cluster-test cluster under squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql update my-cluster-test --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+MySQL cluster updated, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-cluster-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+$
+$ squidsctl mysql list -n squids -w table
++-----------------+-----------+---------+-------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> REPLICA &lt;span style="color:#000;font-weight:bold">|&lt;/span> SLAVE &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------------+-----------+---------+-------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------------+-----------+---------+-------+
+$
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Change the CPU limit of the whole my-cluster-test cluster&lt;/p>
+&lt;blockquote>
+&lt;p>==Note: when you change CPU/memory option,operator will restart the whole MySQL cluster to adjust to the new config!==&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql update my-cluster-test --cpu-limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>
+MySQL cluster updated, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-cluster-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+$
+$ squidsctl mysql show my-cluster-test -w table
++--------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> CPUREQUEST &lt;span style="color:#000;font-weight:bold">|&lt;/span> CPULIMIT &lt;span style="color:#000;font-weight:bold">|&lt;/span> MEMORYREQUEST &lt;span style="color:#000;font-weight:bold">|&lt;/span> MEMORYLIMIT &lt;span style="color:#000;font-weight:bold">|&lt;/span> PVCSIZE &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODEIP &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODENAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> ROLE &lt;span style="color:#000;font-weight:bold">|&lt;/span> STATUS &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++--------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> master &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> standby &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++--------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+$
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Show</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/show/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/show/</guid><description>
+&lt;h3 id="show-cluster">Show Cluster&lt;/h3>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql show &amp;lt;clusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql show my-cluster-test -w table
+&amp;gt; Note: AccessIP is the access entrance of database cluster, firstly use a LoadBalanceIP, &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> LoadBalanceIP is null, use Master database NodeIP
+CLUSTER
++-----------------+-----------+---------+-------+-----------+---------------+-------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> REPLICA &lt;span style="color:#000;font-weight:bold">|&lt;/span> SLAVE &lt;span style="color:#000;font-weight:bold">|&lt;/span> STATUS &lt;span style="color:#000;font-weight:bold">|&lt;/span> ACCESSIP &lt;span style="color:#000;font-weight:bold">|&lt;/span> PORT &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------------+-----------+---------+-------+-----------+---------------+-------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">32324&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------------+-----------+---------+-------+-----------+---------------+-------+
+DATABASE
++----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> CPUREQUEST &lt;span style="color:#000;font-weight:bold">|&lt;/span> CPULIMIT &lt;span style="color:#000;font-weight:bold">|&lt;/span> MEMORYREQUEST &lt;span style="color:#000;font-weight:bold">|&lt;/span> MEMORYLIMIT &lt;span style="color:#000;font-weight:bold">|&lt;/span> PVCSIZE &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODEIP &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODENAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> ROLE &lt;span style="color:#000;font-weight:bold">|&lt;/span> STATUS &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> master &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> standby &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> slave &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
+VOLUME
++----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> PVCSIZE &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODENAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> PATH &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-0a1f85b5-7bd8-4ce6-93dd-7653350b5159_squids_data-my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-d3928c72-49bb-4c9e-aa45-bfa3ff0cae3c_squids_data-my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-a1657f5d-c722-4315-97f1-b95838b1e85c_squids_data-my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Delete</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/delete/</guid><description>
+&lt;h4 id="delete-cluster">Delete Cluster&lt;/h4>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;all&lt;/td>
+&lt;td>Delete all clusters under the specified namespace.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;selector&lt;/td>
+&lt;td>The selector to use for delete cluster filtering&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>Delete ==my-cluster-test== cluster under squids namespace&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql-cluster delete my-cluster-test -n squids
+MySQL cluster deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-cluster-test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Database Command</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/database/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/database/</guid><description>
+&lt;h3 id="mysql-database-management">MySQL Database Management&lt;/h3>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql db &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Command&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>COMMAND&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>add&lt;/td>
+&lt;td>Add a database into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>delete&lt;/td>
+&lt;td>Delete database into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>list&lt;/td>
+&lt;td>List database in the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cluster-name&lt;/td>
+&lt;td>The name of the cluster you want to access&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Docs: Grds MySQL User Command</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/user/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/user/</guid><description>
+&lt;h3 id="mysql-user-management">MySQL User Management&lt;/h3>
+&lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql user &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Command&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>COMMAND&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>add&lt;/td>
+&lt;td>Add a user into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>delete&lt;/td>
+&lt;td>Delete user into the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>list&lt;/td>
+&lt;td>List user in the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>grant&lt;/td>
+&lt;td>List user in the mysql cluster&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>revoke&lt;/td>
+&lt;td>Revoke user privelege for database&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Flag&lt;/strong>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CLI FLAG&lt;/th>
+&lt;th>DESCRIPTION&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;cluster-name&lt;/td>
+&lt;td>The name of the cluster you want to access&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

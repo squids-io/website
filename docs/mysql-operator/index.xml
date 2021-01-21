@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – MySQL Operator Docs</title><link>https://grdscloud.github.io/website/docs/mysql-operator/</link><description>Recent content in MySQL Operator Docs on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://grdscloud.github.io/website/docs/mysql-operator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Quick Start</title><link>https://grdscloud.github.io/website/docs/mysql-operator/quick-start/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/mysql-operator/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – MySQL Operator Docs</title><link>https://squids-io.github.io/website/docs/mysql-operator/</link><description>Recent content in MySQL Operator Docs on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/mysql-operator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Quick Start</title><link>https://squids-io.github.io/website/docs/mysql-operator/quick-start/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/mysql-operator/quick-start/</guid><description>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;ul>
 &lt;li>MySQL operator requires Kubernetes v1.14.x or later or k3s.&lt;/li>
@@ -7,7 +7,7 @@
 &lt;h2 id="quick-start-step">Quick start step&lt;/h2>
 &lt;ol>
 &lt;li>deploy MySQL operator&lt;/li>
-&lt;li>install grds CLI tool&lt;/li>
+&lt;li>install squids CLI tool&lt;/li>
 &lt;li>create a MySQL cluster&lt;/li>
 &lt;li>connect to MySQL cluster&lt;/li>
 &lt;/ol>
@@ -15,7 +15,7 @@
 &lt;p>You can choose &lt;a href="#deploy-mysql-operator-with-helm">helm&lt;/a> or &lt;a href="#deploy-mysql-operator-with-kubernetes-manifests">kubernetes manifests&lt;/a> to depley MySQL operator&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="deploy-mysql-operator-with-helm">Deploy MySQL operator with Helm&lt;/h2>
-&lt;p align="center">&lt;img src="https://grdscloud.github.io/website/website/images/helm2.svg" width="150">&lt;/p>
+&lt;p align="center">&lt;img src="https://squids-io.github.io/website/website/images/helm2.svg" width="150">&lt;/p>
 &lt;blockquote>
 &lt;p>Note: For the Helm-based installation you need &lt;a href="https://helm.sh/docs/intro/install/#helm">Helm&lt;/a> v3.2.4 or later.&lt;/p>
 &lt;/blockquote>
@@ -25,12 +25,12 @@
 &lt;ul>
 &lt;li>Helm v3&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">helm repo add grdscloud-stable https://grdscloud.github.io/charts/
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">helm repo add squids-stable https://squids-io.github.io/charts/
 helm repo update
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Install the MySQL Operator&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">helm upgrade --install --wait --create-namespace --namespace grds mysql-operator grdscloud-stable/mysql-operator
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">helm upgrade --install --wait --create-namespace --namespace squids mysql-operator squids-stable/mysql-operator
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;blockquote>
@@ -42,20 +42,20 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 &lt;/code>&lt;/pre>&lt;h2 id="deploy-mysql-operator-with-kubernetes-manifests">Deploy MySQL operator with kubernetes manifests&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Create a controlNamespace called &amp;ldquo;grds&amp;rdquo;.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl create ns grds
+&lt;p>Create a Namespace called &amp;ldquo;squids&amp;rdquo;.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl create ns squids
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Create a ServiceAccount and install cluster roles.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n grds create -f https://raw.githubusercontent.com/GrdsCloud/grds/v1.0.0/installers/manifests/rbac.yaml
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/rbac.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Apply the ClusterResources.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n grds create -f https://raw.githubusercontent.com/GrdsCloud/grds/v1.0.0/installers/manifests/mysql.grds.cloud_mysqlclusters.yaml
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/mysql.grds.cloud_mysqlclusters.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Deploy the MySQL operator.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n grds create -f https://raw.githubusercontent.com/GrdsCloud/grds/v1.0.0/installers/manifests/deployment.yaml
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/deployment.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;h3 id="verify-mysql-operator-deployment">Verify MySQL operator deployment&lt;/h3>
@@ -63,37 +63,37 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 &lt;ol>
 &lt;li>
 &lt;p>Check the status of the pods. You should see a new mysql-operator pod&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ kubectl get pods -n grds
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ kubectl get pods -n squids
 NAME READY STATUS RESTARTS AGE
 mysql-operator-76c44cdc5c-lw4z6 1/1 Running &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> 53s
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Check the CRDs. You should see the following MySQL cluster CRDs.
 mysql-cluster-crd.png&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ kubectl get crd &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep grds
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ kubectl get crd &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep squids
 NAME CREATED AT
-mysqlclusters.mysql.grds.cloud 2020-10-28T09:53:01Z
+mysqlclusters.mysql.squids.io 2020-10-28T09:53:01Z
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
-&lt;h3 id="install-grds-cli-tool">Install grds CLI tool&lt;/h3>
-&lt;p>&lt;code>grds&lt;/code> cli is a command tool for k8s database operator management,we recommend using &lt;code>grds&lt;/code> to manage database operator in terminal console.
-After database operator deployment,you can run following command to install &lt;code>grds&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl https://raw.githubusercontent.com/GrdsCloud/grds/v1.0.0/installers/kubectl/client-setup.sh &amp;gt; client-setup.sh
+&lt;h3 id="install-squids-cli-tool">Install squids CLI tool&lt;/h3>
+&lt;p>&lt;code>squids&lt;/code> client is a command tool for k8s database operator management,we recommend using &lt;code>squidsctl&lt;/code> to manage database operator in terminal console.
+After database operator deployment,you can run following command to install &lt;code>squidsctl&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/kubectl/client-setup.sh &amp;gt; client-setup.sh
 chmod +x client-setup.sh
 ./client-setup.sh
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>It will prompt for some environment variables,you should add these environment variables to bash profile:&lt;/p>
 &lt;pre>&lt;code>cat &amp;lt;&amp;lt;EOF &amp;gt;&amp;gt; ~/.bash_profile
-export GRDS_CA_CERT=&amp;quot;${HOME?}/.grds/grds/client.crt&amp;quot;
-export GRDS_CLIENT_CERT=&amp;quot;${HOME?}/.grds/grds/client.crt&amp;quot;
-export GRDS_CLIENT_KEY=&amp;quot;${HOME?}/.grds/grds/client.key&amp;quot;
+export GRDS_CA_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
+export GRDS_CLIENT_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
+export GRDS_CLIENT_KEY=&amp;quot;${HOME?}/.squids/client.key&amp;quot;
 export GRDS_APISERVER_URL='https://127.0.0.1:8443'
-export GRDS_NAMESPACE=grds
+export GRDS_NAMESPACE=squids
 EOF
 source ~/.bash_profile
 &lt;/code>&lt;/pre>&lt;p>Finally, In order to communicate with the Operator API server, you will first need to set up a port forward to your local environment.&lt;/p>
 &lt;p>In a new console window, run the following command to set up a port forward:&lt;/p>
-&lt;pre>&lt;code>kubectl -n grds port-forward svc/mysql-operator 8443:8443
-&lt;/code>&lt;/pre>&lt;h3 id="create-a-mysql-cluster-using-grds-cli-tool">Create a MySQL Cluster using grds CLI tool&lt;/h3>
+&lt;pre>&lt;code>kubectl -n squids port-forward svc/mysql-operator 8443:8443
+&lt;/code>&lt;/pre>&lt;h3 id="create-a-mysql-cluster-using-squids-cli-tool">Create a MySQL Cluster using squids CLI tool&lt;/h3>
 &lt;blockquote>
 &lt;p>Before creating a database cluster, please confirm that there is a default &lt;a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">storage class&lt;/a> in your kubernetes environment.&lt;/p>
 &lt;p>You also can choose to use &lt;a href="https://github.com/rancher/local-path-provisioner">local volumes&lt;/a> to provide persistent storage if you not any default storage:&lt;/p>
@@ -104,50 +104,50 @@ kubectl patch storageclass local-path -p &lt;span style="color:#4e9a06">&amp;#39
 &lt;li>&lt;strong>Create database&lt;/strong>&lt;/li>
 &lt;/ol>
 &lt;p>Example 1:
-create a single instance MySQL 8.0 &lt;code>my-single&lt;/code> in grds namespace,CPU/memory is unlimited.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql add my-single &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10Gi --replica-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> -n grds --version&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8.0
-MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-single&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>grds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+create a single instance MySQL 8.0 &lt;code>my-single&lt;/code> in squids namespace,CPU/memory is unlimited.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql add my-single &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10Gi --replica-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> -n squids --version&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8.0
+MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-single&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Example 2:
-create a high availability MySQL cluster &lt;code>my-hacluster&lt;/code> with 2 primary candidates,1 read-only slave in grds namespace,
+create a high availability MySQL cluster &lt;code>my-hacluster&lt;/code> with 2 primary candidates,1 read-only slave in squids namespace,
 max 2 vCPU,2GB memory&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql add my-hacluster &lt;span style="color:#4e9a06">\
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql add my-hacluster &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>0.5 --cpu-limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>2Gi --memory-limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>2Gi &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10Gi --replica-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -n grds
-MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-hacluster&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>grds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10Gi --replica-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -n squids
+MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-hacluster&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
 &lt;li>&lt;strong>Add admin user&lt;/strong>&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql user add mymanager1 xnhhujmki09KU --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mysql-cluster-name --high
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql user add mymanager1 xnhhujmki09KU --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mysql-cluster-name --high
 MySQL user created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>mymanager1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="connect-to-mysql-cluster">Connect to MySQL Cluster&lt;/h2>
 &lt;ol>
 &lt;li>&lt;strong>Get connect information&lt;/strong>&lt;/li>
 &lt;/ol>
-&lt;p>You can use &lt;code>grds mysql show&lt;/code> command to get detail information of a MySQL cluster&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ grds mysql show my-cluster-test -w table
+&lt;p>You can use &lt;code>squidsctl mysql show&lt;/code> command to get detail information of a MySQL cluster&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql show my-cluster-test -w table
 &amp;gt; Note: AccessIP is the access entrance of database cluster, firstly use a LoadBalanceIP, &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> LoadBalanceIP is null, use Master database NodeIP
 CLUSTER
 +-----------------+-----------+---------+-------+-----------+---------------+-------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> REPLICA &lt;span style="color:#000;font-weight:bold">|&lt;/span> SLAVE &lt;span style="color:#000;font-weight:bold">|&lt;/span> STATUS &lt;span style="color:#000;font-weight:bold">|&lt;/span> ACCESSIP &lt;span style="color:#000;font-weight:bold">|&lt;/span> PORT &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------------+-----------+---------+-------+-----------+---------------+-------+
-&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">32324&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">32324&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------------+-----------+---------+-------+-----------+---------------+-------+
 DATABASE
 +----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAMESPACE &lt;span style="color:#000;font-weight:bold">|&lt;/span> CPUREQUEST &lt;span style="color:#000;font-weight:bold">|&lt;/span> CPULIMIT &lt;span style="color:#000;font-weight:bold">|&lt;/span> MEMORYREQUEST &lt;span style="color:#000;font-weight:bold">|&lt;/span> MEMORYLIMIT &lt;span style="color:#000;font-weight:bold">|&lt;/span> PVCSIZE &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODEIP &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODENAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> ROLE &lt;span style="color:#000;font-weight:bold">|&lt;/span> STATUS &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
-&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> master &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
-&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> standby &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
-&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> grds &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> slave &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> master &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> standby &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> 500m &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> slave &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
 VOLUME
 +----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> NAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> PVCSIZE &lt;span style="color:#000;font-weight:bold">|&lt;/span> NODENAME &lt;span style="color:#000;font-weight:bold">|&lt;/span> PATH &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
-&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-0a1f85b5-7bd8-4ce6-93dd-7653350b5159_grds_data-my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
-&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-d3928c72-49bb-4c9e-aa45-bfa3ff0cae3c_grds_data-my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
-&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-a1657f5d-c722-4315-97f1-b95838b1e85c_grds_data-my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-133 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-0a1f85b5-7bd8-4ce6-93dd-7653350b5159_squids_data-my-cluster-test-replica0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-d3928c72-49bb-4c9e-aa45-bfa3ff0cae3c_squids_data-my-cluster-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> /var/lib/k3s/local-path/pvc-a1657f5d-c722-4315-97f1-b95838b1e85c_squids_data-my-cluster-test-slave0-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
 &lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
 &lt;li>&lt;strong>connect MySQL database&lt;/strong>&lt;/li>
@@ -161,11 +161,11 @@ Server version: 5.7.26-log MySQL Community Server - (GPL)
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MySQL [(none)]&amp;gt;
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Installation</title><link>https://grdscloud.github.io/website/docs/mysql-operator/installation/</link><pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate><guid>https://grdscloud.github.io/website/docs/mysql-operator/installation/</guid><description>
-&lt;p>There are several different ways to install and deploy the &lt;a href="http://www.grds.cloud/">MySQL Operator&lt;/a>
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Installation</title><link>https://squids-io.github.io/website/docs/mysql-operator/installation/</link><pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/mysql-operator/installation/</guid><description>
+&lt;p>There are several different ways to install and deploy the &lt;a href="http://www.squids.io/">MySQL Operator&lt;/a>
 based upon your use case.&lt;/p>
-&lt;p>For the vast majority of use cases, we recommend using the &lt;a href="https://grdscloud.github.io/website/website/docs/mysql-operator/installation/helm/">Helm&lt;/a>,&lt;/p>
+&lt;p>For the vast majority of use cases, we recommend using the &lt;a href="https://squids-io.github.io/website/website/docs/mysql-operator/installation/helm/">Helm&lt;/a>,&lt;/p>
 &lt;p>Before selecting your installation method, it&amp;rsquo;s important that you first read
-the &lt;a href="https://grdscloud.github.io/website/website/docs/mysql-operator/installation/prerequisites/">prerequisites&lt;/a> for your
+the &lt;a href="https://squids-io.github.io/website/website/docs/mysql-operator/installation/prerequisites/">prerequisites&lt;/a> for your
 deployment environment to ensure that your setup meets the needs for installing
 the PostgreSQL Operator.&lt;/p></description></item></channel></rss>

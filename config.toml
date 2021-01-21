@@ -1,6 +1,6 @@
 # https://discourse.gohugo.io/t/solved-hugo-not-rendering-css-but-hugo-server-is/6464
-baseURL = "https://grdscloud.github.io/website/"
-title = "Grdsdocs"
+baseURL = "https://squids-io.github.io/website/"
+title = "Squidsdocs"
 
 enableRobotsTXT = true
 
@@ -54,14 +54,14 @@ id = "UA-00000000-0"
 
 [languages]
 [languages.en]
-title = "Grdsdocs"
-description = "GrdsCloud docs site"
+title = "Squidsdocs"
+description = "Squids docs site"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
 [languages.cn]
-title = "Grdsdocs"
-description = "GrdsCloud docs site"
+title = "Squidsdocs"
+description = "Squids docs site"
 languageName ="简体中文"
 contentDir = "content/cn"
 
@@ -78,7 +78,7 @@ contentDir = "content/cn"
 # Everything below this are Site Params
 
 [params]
-copyright = "The Grds Authors"
+copyright = "The Squids Authors"
 privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
@@ -102,10 +102,10 @@ operatorVersion = "v1.0.0"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://grdscloud.github.io/website/"
+url_latest_version = "https://squids-io.github.io/website/"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/GrdsCloud/website"
+github_repo = "https://github.com/squids-io/website"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 github_project_repo = "https://github.com/google/docsy"
 

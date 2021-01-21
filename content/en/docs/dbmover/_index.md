@@ -37,8 +37,8 @@ You can use dbmover to export database data to hdfs or local filesystem,support 
 # Quick Start
 
 #### Get dbmover for MySQL
-- Download [dbmover_for_linux](https://grdscloud.github.io/website/download/dbmover/1.0.1/dbmover_for_linux)
-- Download [dbmover_for_mac](https://grdscloud.github.io/website/download/dbmover/1.0.1/dbmover_for_mac)
+- Download [dbmover_for_linux](https://squids-io.github.io/website/download/dbmover/1.0.1/dbmover_for_linux)
+- Download [dbmover_for_mac](https://squids-io.github.io/website/download/dbmover/1.0.1/dbmover_for_mac)
 
 
 

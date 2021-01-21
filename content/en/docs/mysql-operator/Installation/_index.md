@@ -7,7 +7,7 @@ description: >
   Install mysql operator
 ---
 
-There are several different ways to install and deploy the [MySQL Operator](http://www.grds.cloud/)
+There are several different ways to install and deploy the [MySQL Operator](http://www.squids.io/)
 based upon your use case.
 
 For the vast majority of use cases, we recommend using the [Helm]({{< relref "./helm.md" >}}),

@@ -13,7 +13,7 @@ description: >
 
 ## Quick start step
 1. deploy MySQL operator
-2. install grds CLI tool
+2. install squids CLI tool
 3. create a MySQL cluster
 4. connect to MySQL cluster
 
@@ -28,14 +28,14 @@ description: >
 1. Add operator chart repository.
     - Helm v3
     ```bash
-    helm repo add grdscloud-stable https://grdscloud.github.io/charts/
+    helm repo add squids-stable https://squids-io.github.io/charts/
     helm repo update
     ```
 
 2. Install the MySQL Operator
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace grds mysql-operator grdscloud-stable/mysql-operator
+    helm upgrade --install --wait --create-namespace --namespace squids mysql-operator squids-stable/mysql-operator
     ```
 
 > If you using k3s,sometimes helm will not access k3s cluster,please copy the k3s.yaml to .kube/config,refer to [k3s cluster access](https://rancher.com/docs/k3s/latest/en/cluster-access)
@@ -50,28 +50,28 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 ## Deploy MySQL operator with kubernetes manifests
 
 
-1. Create a controlNamespace called "grds".
+1. Create a Namespace called "squids".
 
     ```bash
-    kubectl create ns grds
+    kubectl create ns squids
     ```
 
 2. Create a ServiceAccount and install cluster roles.
 
     ```bash
-    kubectl -n grds create -f https://raw.githubusercontent.com/GrdsCloud/grds/{{< param operatorVersion >}}/installers/manifests/rbac.yaml
+    kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/{{< param operatorVersion >}}/installers/manifests/rbac.yaml
     ```
 
-3. Apply the ClusterResources.
+3. Apply the CRD.
 
     ```bash
-    kubectl -n grds create -f https://raw.githubusercontent.com/GrdsCloud/grds/{{< param operatorVersion >}}/installers/manifests/mysql.grds.cloud_mysqlclusters.yaml
+    kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/{{< param operatorVersion >}}/installers/manifests/mysql.squids.io_mysqlclusters.yaml
     ```
 
 4. Deploy the MySQL operator.
 
     ```bash
-   kubectl -n grds create -f https://raw.githubusercontent.com/GrdsCloud/grds/{{< param operatorVersion >}}/installers/manifests/deployment.yaml
+   kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/{{< param operatorVersion >}}/installers/manifests/deployment.yaml
     ```
 
 ### Verify MySQL operator deployment
@@ -81,7 +81,7 @@ To verify that the installation, complete the following steps.
 1. Check the status of the pods. You should see a new mysql-operator pod
 
     ```bash
-    $ kubectl get pods -n grds
+    $ kubectl get pods -n squids
     NAME                                        READY   STATUS    RESTARTS   AGE
     mysql-operator-76c44cdc5c-lw4z6             1/1     Running   0          53s
     ```
@@ -90,18 +90,18 @@ To verify that the installation, complete the following steps.
 mysql-cluster-crd.png
 
     ```bash
-    $ kubectl get crd | grep grds
+    $ kubectl get crd | grep squids
     NAME                                    CREATED AT
-    mysqlclusters.mysql.grds.cloud          2020-10-28T09:53:01Z
+    mysqlclusters.mysql.squids.io          2020-10-28T09:53:01Z
     ```
 
-### Install grds CLI tool
+### Install squids CLI tool
 
-`grds` cli is a command tool for k8s database operator management,we recommend using `grds` to manage database operator in terminal console.
-After database operator deployment,you can run following command to install `grds`:
+`squids` client is a command tool for k8s database operator management,we recommend using `squidsctl` to manage database operator in terminal console.
+After database operator deployment,you can run following command to install `squidsctl`:
 
 ```shell
-curl https://raw.githubusercontent.com/GrdsCloud/grds/{{< param operatorVersion >}}/installers/kubectl/client-setup.sh > client-setup.sh
+curl https://raw.githubusercontent.com/squids-io/grds/{{< param operatorVersion >}}/installers/kubectl/client-setup.sh > client-setup.sh
 chmod +x client-setup.sh
 ./client-setup.sh
 ```
@@ -109,11 +109,11 @@ It will prompt for some environment variables,you should add these environment v
 
 ```
 cat <<EOF >> ~/.bash_profile
-export GRDS_CA_CERT="${HOME?}/.grds/grds/client.crt"
-export GRDS_CLIENT_CERT="${HOME?}/.grds/grds/client.crt"
-export GRDS_CLIENT_KEY="${HOME?}/.grds/grds/client.key"
-export GRDS_APISERVER_URL='https://127.0.0.1:8443'
-export GRDS_NAMESPACE=grds
+export SQUIDS_CA_CERT="${HOME?}/.squids/client.crt"
+export SQUIDS_CLIENT_CERT="${HOME?}/.squids/client.crt"
+export SQUIDS_CLIENT_KEY="${HOME?}/.squids/client.key"
+export SQUIDS_APISERVER_URL='https://127.0.0.1:8443'
+export SQUIDS_NAMESPACE=squids
 EOF
 
 source ~/.bash_profile
@@ -124,11 +124,11 @@ Finally, In order to communicate with the Operator API server, you will first ne
 In a new console window, run the following command to set up a port forward:
 
 ```
-kubectl -n grds port-forward svc/mysql-operator 8443:8443
+kubectl -n squids port-forward svc/mysql-operator 8443:8443
 ```
 
 
-### Create a MySQL Cluster using grds CLI tool
+### Create a MySQL Cluster using squids CLI tool
 
 > Before creating a database cluster, please confirm that there is a default [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) in your kubernetes environment. 
 >
@@ -141,28 +141,28 @@ kubectl -n grds port-forward svc/mysql-operator 8443:8443
 1. **Create database**
 
 Example 1:
-create a single instance MySQL 8.0 `my-single` in grds namespace,CPU/memory is unlimited.
+create a single instance MySQL 8.0 `my-single` in squids namespace,CPU/memory is unlimited.
 
 ```shell
-$ grds mysql add my-single \
-  --pvc-size=10Gi --replica-count=1 --slave-count=0 -n grds --version=8.0
-MySQL cluster created, name: [my-single] namespace [grds].
+$ squidsctl mysql add my-single \
+  --pvc-size=10Gi --replica-count=1 --slave-count=0 -n squids --version=8.0
+MySQL cluster created, name: [my-single] namespace [squids].
 ```
 
 Example 2:
-create a high availability MySQL cluster `my-hacluster` with 2 primary candidates,1 read-only slave in grds namespace,
+create a high availability MySQL cluster `my-hacluster` with 2 primary candidates,1 read-only slave in squids namespace,
 max 2 vCPU,2GB memory
 
 ```shell
-$ grds mysql add my-hacluster \
+$ squidsctl mysql add my-hacluster \
   --cpu=0.5 --cpu-limit=2 --memory=2Gi --memory-limit=2Gi  \
-  --pvc-size=10Gi --replica-count=2 --slave-count=1 -n grds
-MySQL cluster created, name: [my-hacluster] namespace [grds].
+  --pvc-size=10Gi --replica-count=2 --slave-count=1 -n squids
+MySQL cluster created, name: [my-hacluster] namespace [squids].
 ```
 
 2. **Add admin user**
 ```shell 
-$ grds mysql user add mymanager1 xnhhujmki09KU --cluster-name=mysql-cluster-name --high
+$ squidsctl mysql user add mymanager1 xnhhujmki09KU --cluster-name=mysql-cluster-name --high
 MySQL user created, name: [mymanager1].
 ```
 
@@ -171,10 +171,10 @@ MySQL user created, name: [mymanager1].
 
 1. **Get connect information**
 
-You can use `grds mysql show` command to get detail information of a MySQL cluster
+You can use `squidsctl mysql show` command to get detail information of a MySQL cluster
 
 ```shell
-$ grds  mysql show my-cluster-test  -w table
+$ squidsctl  mysql show my-cluster-test  -w table
 
 > Note: AccessIP is the access entrance of database cluster, firstly use a LoadBalanceIP, if LoadBalanceIP is null, use Master database NodeIP
 
@@ -182,23 +182,23 @@ CLUSTER
 +-----------------+-----------+---------+-------+-----------+---------------+-------+
 |      NAME       | NAMESPACE | REPLICA | SLAVE |  STATUS   |   ACCESSIP    | PORT  |
 +-----------------+-----------+---------+-------+-----------+---------------+-------+
-| my-cluster-test |      grds |       2 |     1 | available | 10.10.120.133 | 32324 |
+| my-cluster-test |    squids |       2 |     1 | available | 10.10.120.133 | 32324 |
 +-----------------+-----------+---------+-------+-----------+---------------+-------+
 DATABASE
 +----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
 |            NAME            | NAMESPACE | CPUREQUEST | CPULIMIT | MEMORYREQUEST | MEMORYLIMIT | PVCSIZE |    NODEIP     |   NODENAME    |  ROLE   |  STATUS   |
 +----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
-| my-cluster-test-replica0-0 |      grds |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.133 | 10-10-120-133 |  master | available |
-| my-cluster-test-replica1-0 |      grds |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.232 | 10-10-120-232 | standby | available |
-|   my-cluster-test-slave0-0 |      grds |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.174 | 10-10-120-174 |   slave | available |
+| my-cluster-test-replica0-0 |    squids |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.133 | 10-10-120-133 |  master | available |
+| my-cluster-test-replica1-0 |    squids |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.232 | 10-10-120-232 | standby | available |
+|   my-cluster-test-slave0-0 |    squids |       500m |        2 |           2Gi |         2Gi |    10Gi | 10.10.120.174 | 10-10-120-174 |   slave | available |
 +----------------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
 VOLUME
 +----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
 |            NAME            | PVCSIZE |   NODENAME    |                                                 PATH                                                  |
 +----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
-| my-cluster-test-replica0-0 |    10Gi | 10-10-120-133 | /var/lib/k3s/local-path/pvc-0a1f85b5-7bd8-4ce6-93dd-7653350b5159_grds_data-my-cluster-test-replica0-0 |
-| my-cluster-test-replica1-0 |    10Gi | 10-10-120-232 | /var/lib/k3s/local-path/pvc-d3928c72-49bb-4c9e-aa45-bfa3ff0cae3c_grds_data-my-cluster-test-replica1-0 |
-|   my-cluster-test-slave0-0 |    10Gi | 10-10-120-174 |   /var/lib/k3s/local-path/pvc-a1657f5d-c722-4315-97f1-b95838b1e85c_grds_data-my-cluster-test-slave0-0 |
+| my-cluster-test-replica0-0 |    10Gi | 10-10-120-133 | /var/lib/k3s/local-path/pvc-0a1f85b5-7bd8-4ce6-93dd-7653350b5159_squids_data-my-cluster-test-replica0-0 |
+| my-cluster-test-replica1-0 |    10Gi | 10-10-120-232 | /var/lib/k3s/local-path/pvc-d3928c72-49bb-4c9e-aa45-bfa3ff0cae3c_squids_data-my-cluster-test-replica1-0 |
+|   my-cluster-test-slave0-0 |    10Gi | 10-10-120-174 | /var/lib/k3s/local-path/pvc-a1657f5d-c722-4315-97f1-b95838b1e85c_squids_data-my-cluster-test-slave0-0 |
 +----------------------------+---------+---------------+-------------------------------------------------------------------------------------------------------+
 ```
 

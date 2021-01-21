@@ -14,14 +14,14 @@ description: >
 1. Add operator chart repository.
     - Helm v3
     ```bash
-    helm repo add grdscloud-stable https://grdscloud.github.io/charts/
+    helm repo add squids-stable https://squids-io.github.io/charts/
     helm repo update
     ```
 
 2. Install the MySQL Operator
 
     ```bash
-    helm upgrade --install --wait --create-namespace --namespace grds mysql-operator grdscloud-stable/mysql-operator
+    helm upgrade --install --wait --create-namespace --namespace squids mysql-operator squids-stable/mysql-operator
     ```
 
 > If you using k3s,sometimes helm will not access k3s cluster,please copy the k3s.yaml to .kube/config,refer to [k3s cluster access](https://rancher.com/docs/k3s/latest/en/cluster-access)
@@ -40,7 +40,7 @@ To verify that the installation was successful, complete the following steps.
 1. Check the status of the pods. You should see a new mysql-operator pod
 
     ```bash
-    $ kubectl get pods -n grds
+    $ kubectl get pods -n squids
     NAME                                        READY   STATUS    RESTARTS   AGE
     mysql-operator-76c44cdc5c-lw4z6             1/1     Running   0          53s
     ```
@@ -49,8 +49,8 @@ To verify that the installation was successful, complete the following steps.
 mysql-cluster-crd.png
 
     ```bash
-    $ kubectl get crd | grep grds
+    $ kubectl get crd | grep squids
     NAME                                    CREATED AT
-    mysqlclusters.mysql.grds.cloud          2020-10-28T09:53:01Z
+    mysqlclusters.mysql.squids.io          2020-10-28T09:53:01Z
     ```
 

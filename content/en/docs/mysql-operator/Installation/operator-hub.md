@@ -9,7 +9,7 @@ description: >
 
 
 If your Kubernetes cluster is already running the [Operator Lifecycle Manager][OLM],
-the PostgreSQL Operator can be installed as part of [Grds MySQL for Kubernetes][hub-listing]
+the MySQL Operator can be installed as part of [Squids MySQL for Kubernetes][hub-listing]
 that is available in OperatorHub.io.
 
 [hub-listing]: https://operatorhub.io/operator/mysql
@@ -56,5 +56,5 @@ mysql-cluster-crd.png
     ```bash
     $ kubectl get crd | grep operator
     NAME                                    CREATED AT
-    mysqlclusters.mysql.grds.cloud          2020-10-28T09:53:01Z
+    mysqlclusters.mysql.squids.io          2020-10-28T09:53:01Z
     ```

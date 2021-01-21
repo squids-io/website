@@ -54,7 +54,7 @@ new MySQL cluster by applying manifest like this [minimal example](../manifests/
 
 ```yaml
 kubectl apply -f - <<EOF
-apiVersion: mysql.grds.cloud/v1
+apiVersion: mysql.squids.io/v1
 kind: MysqlCluster
 metadata:
   name: mysqlcluster-sample
@@ -79,7 +79,7 @@ spec:
 EOF
 ```
 
-Once you cloned the MySQL Operator [repository](https://github.com/GrdsCloud/mysql-operator-docs.git)
+Once you cloned the MySQL Operator [repository](https://github.com/squids-io/mysql-operator-docs.git)
 you can find this example also in the manifests folder:
 
 ```bash
@@ -92,10 +92,10 @@ The minimum volume size to run the `MySQL` resource is `1Gi`.
 
 ## Watch pods being created
 
-Check if the database pods are coming up. Use the label `created-by=grds.cloud` to filter
+Check if the database pods are coming up. Use the label `created-by=squids.io` to filter
 
 ```bash
-kubectl get pods -l created-by=grds.cloud -w
+kubectl get pods -l created-by=squids.io -w
 ```
 
 The operator also emits K8s events to the MySQL CRD which can be inspected
@@ -171,7 +171,7 @@ you can use the `customResources` field to achieve.
 Execute the following execution to view the database instance list of the `mysqlcluster-sample` cluster
 
 ```bash
-kubectl get statefulset -l created-by=grds.cloud,app-name=mysqlcluster-sample
+kubectl get statefulset -l created-by=squids.io,app-name=mysqlcluster-sample
 ```
 
 For Example: Mofify database instance `mysqlcluster-sample-slave0`'s `cpu=3` and `memory=2Gi`
@@ -217,7 +217,7 @@ Recreate will recreate the databse instance and the volume used by the databse i
 Execute the following execution to view the database instance list of the `mysqlcluster-sample` cluster
 
 ```bash
-kubectl get pods -l created-by=grds.cloud,app-name=mysqlcluster-sample
+kubectl get pods -l created-by=squids.io,app-name=mysqlcluster-sample
 ```
 
 For Example: Recreate mysqlcluster-sample-slave0-0
@@ -225,7 +225,7 @@ For Example: Recreate mysqlcluster-sample-slave0-0
 ```yaml
 metadata:
   annotations:
-    grds.cloud/recreate-pod: mysqlcluster-sample-slave0-0
+    squids.io/recreate-pod: mysqlcluster-sample-slave0-0
 ```
 
 Once you modified the MySQL cluster manifest, you can apply this modify to the apiserver

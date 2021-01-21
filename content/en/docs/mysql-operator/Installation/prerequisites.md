@@ -18,7 +18,7 @@ The MySQL Operator is tested in the following environments:
 
 ## Client Interfaces
 
-The MySQL Operator installer will install the [`grds` client]({{< relref "docs/grds-client" >}}) interface
+The MySQL Operator installer will install the [`squids` client]({{< relref "docs/squids-client" >}}) interface
 to help with using the MySQL Operator. However, it is also recommend that
 you have access to [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and are able to communicate with the
 Kubernetes cluster that you are working with.
@@ -26,7 +26,7 @@ Kubernetes cluster that you are working with.
 ## Ports
 
 There are several application ports to note when using the MySQL Operator.
-These ports allow for the [`grds` client]({{< relref "docs/grds-client" >}})
+These ports allow for the [`squids` client]({{< relref "docs/squids-client" >}})
 to interface with the MySQL Operator API:
 
 | Container | Port |

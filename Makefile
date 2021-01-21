@@ -4,7 +4,7 @@ HUGO_VERSION=0.78.2
 # but this can be overridden when calling make, e.g.
 # CONTAINER_ENGINE=podman make container-image
 CONTAINER_ENGINE ?= docker
-CONTAINER_IMAGE   = grds/grds-hugo
+CONTAINER_IMAGE   = squids/hugo
 CONTAINER_RUN     = $(CONTAINER_ENGINE) run --rm --interactive --tty --volume $(CURDIR):/src
 
 CCRED=\033[0;31m

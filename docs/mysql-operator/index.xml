@@ -50,7 +50,7 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/rbac.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>Apply the ClusterResources.&lt;/p>
+&lt;p>Apply the CRD.&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/mysql.squids.io_mysqlclusters.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>

@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – MySQL Operator Docs</title><link>https://squids-io.github.io/website/docs/mysql-operator/</link><description>Recent content in MySQL Operator Docs on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/mysql-operator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Quick Start</title><link>https://squids-io.github.io/website/docs/mysql-operator/quick-start/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/mysql-operator/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Squidsdocs – MySQL Operator Docs</title><link>https://squids-io.github.io/website/docs/mysql-operator/</link><description>Recent content in MySQL Operator Docs on Squidsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/mysql-operator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Quick Start</title><link>https://squids-io.github.io/website/docs/mysql-operator/quick-start/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/mysql-operator/quick-start/</guid><description>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;ul>
 &lt;li>MySQL operator requires Kubernetes v1.14.x or later or k3s.&lt;/li>
@@ -51,7 +51,7 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Apply the ClusterResources.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/mysql.grds.cloud_mysqlclusters.yaml
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/mysql.squids.io_mysqlclusters.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Deploy the MySQL operator.&lt;/p>
@@ -83,11 +83,11 @@ chmod +x client-setup.sh
 ./client-setup.sh
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>It will prompt for some environment variables,you should add these environment variables to bash profile:&lt;/p>
 &lt;pre>&lt;code>cat &amp;lt;&amp;lt;EOF &amp;gt;&amp;gt; ~/.bash_profile
-export GRDS_CA_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
-export GRDS_CLIENT_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
-export GRDS_CLIENT_KEY=&amp;quot;${HOME?}/.squids/client.key&amp;quot;
-export GRDS_APISERVER_URL='https://127.0.0.1:8443'
-export GRDS_NAMESPACE=squids
+export SQUIDS_CA_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
+export SQUIDS_CLIENT_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
+export SQUIDS_CLIENT_KEY=&amp;quot;${HOME?}/.squids/client.key&amp;quot;
+export SQUIDS_APISERVER_URL='https://127.0.0.1:8443'
+export SQUIDS_NAMESPACE=squids
 EOF
 source ~/.bash_profile
 &lt;/code>&lt;/pre>&lt;p>Finally, In order to communicate with the Operator API server, you will first need to set up a port forward to your local environment.&lt;/p>

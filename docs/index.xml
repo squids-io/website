@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grdsdocs – Documentation</title><link>https://squids-io.github.io/website/docs/</link><description>Recent content in Documentation on Grdsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Grds Backup Create</title><link>https://squids-io.github.io/website/docs/squids-client/backup/create/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/create/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Squidsdocs – Documentation</title><link>https://squids-io.github.io/website/docs/</link><description>Recent content in Documentation on Squidsdocs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://squids-io.github.io/website/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Squids Backup Create</title><link>https://squids-io.github.io/website/docs/squids-client/backup/create/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/create/</guid><description>
 &lt;h4 id="create-backup">Create Backup&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup create &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -135,7 +135,7 @@ MySQL schema created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt
 +----------+------+-----------+--------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> utf8 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +----------+------+-----------+--------------+
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Add</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/add/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids MySQL Add</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/add/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/add/</guid><description>
 &lt;h4 id="create-cluster">Create Cluster&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql add &amp;lt;clusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -197,7 +197,7 @@ MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&l
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql add my-single &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pvc-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>10Gi --replica-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> --slave-count&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> -n squids --version&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8.0
 MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-single&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL List</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/list/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids MySQL List</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/list/</guid><description>
 &lt;h4 id="list-cluster">List Cluster&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -229,7 +229,7 @@ MySQL cluster created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&l
 +-----------------+-----------+---------+-------+-----------+-----------------+-------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.174 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30442&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------------+-----------+---------+-------+-----------+---------+-------+-------+
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Restore Cluster</title><link>https://squids-io.github.io/website/docs/squids-client/restore/cluster/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/restore/cluster/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids Restore Cluster</title><link>https://squids-io.github.io/website/docs/squids-client/restore/cluster/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/restore/cluster/</guid><description>
 &lt;h4 id="restore-cluster">Restore Cluster&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl restore cluster &amp;lt;restoreClusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -323,7 +323,7 @@ MySQL user created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/
 +------+----------+-----------+-----------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +------+----------+-----------+-----------+
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Full Backup Manually</title><link>https://squids-io.github.io/website/docs/squids-client/backup/manual-full-job/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/manual-full-job/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids Backup Full Backup Manually</title><link>https://squids-io.github.io/website/docs/squids-client/backup/manual-full-job/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/manual-full-job/</guid><description>
 &lt;h4 id="create-a-full-backup-job-manually">Create A Full Backup Job Manually&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup manual-full-job &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -346,7 +346,7 @@ MySQL user created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/
 &lt;p>Create a full backup job manually for my-cluster-test under squids namespace&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl backup manual-full-job --backup-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-backup-test
 Manual backup Job created, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>my-backup-test-full--test-1606909374&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> namespace &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>squids&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Update</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/update/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/update/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids MySQL Update</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/update/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/update/</guid><description>
 &lt;h4 id="update-cluster">Update Cluster&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql update &amp;lt;clusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -416,7 +416,7 @@ $ squidsctl mysql show my-cluster-test -w table
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-test-replica1-0 &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10Gi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10.10.120.232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> 10-10-120-232 &lt;span style="color:#000;font-weight:bold">|&lt;/span> standby &lt;span style="color:#000;font-weight:bold">|&lt;/span> available &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +--------------------+-----------+------------+----------+---------------+-------------+---------+---------------+---------------+---------+-----------+
 $
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Get Recoverable Time</title><link>https://squids-io.github.io/website/docs/squids-client/restore/get-recoverable-time/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/restore/get-recoverable-time/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids Get Recoverable Time</title><link>https://squids-io.github.io/website/docs/squids-client/restore/get-recoverable-time/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/restore/get-recoverable-time/</guid><description>
 &lt;h4 id="get-crecoverable-time">Get CRecoverable Time&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl restore get-recoverable-time &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -438,7 +438,7 @@ $ squidsctl mysql user list --cluster-name&lt;span style="color:#ce5c00;font-wei
 +------+----------+-----------+-----------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> rw &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +------+----------+-----------+-----------+
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup List</title><link>https://squids-io.github.io/website/docs/squids-client/backup/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/list/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids Backup List</title><link>https://squids-io.github.io/website/docs/squids-client/backup/list/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/list/</guid><description>
 &lt;h4 id="list-backup">List Backup&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -469,7 +469,7 @@ $ squidsctl mysql user list --cluster-name&lt;span style="color:#ce5c00;font-wei
 +----------------+-----------+-----------------+----------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-backup-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> squids &lt;span style="color:#000;font-weight:bold">|&lt;/span> my-cluster-test &lt;span style="color:#000;font-weight:bold">|&lt;/span> nas &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +----------------+-----------+-----------------+----------------------+
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Show</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/show/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/show/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids MySQL Show</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/show/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/show/</guid><description>
 &lt;h3 id="show-cluster">Show Cluster&lt;/h3>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql show &amp;lt;clusterName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -512,7 +512,7 @@ $ squidsctl mysql user list --cluster-name&lt;span style="color:#ce5c00;font-wei
 +------+----------+-----------+-----------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> bzy &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> - &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">false&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +------+----------+-----------+-----------+
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Update</title><link>https://squids-io.github.io/website/docs/squids-client/backup/update/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/update/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids Backup Update</title><link>https://squids-io.github.io/website/docs/squids-client/backup/update/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/update/</guid><description>
 &lt;h4 id="update-backup">Update Backup&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup update &amp;lt;backupName&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -607,7 +607,7 @@ Backup updated, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span
 &lt;p>Delete a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql db delete &lt;span style="color:#204a87">test&lt;/span> --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
 MySQL schema deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>test&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds MySQL Delete</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/delete/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids MySQL Delete</title><link>https://squids-io.github.io/website/docs/squids-client/mysql/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/mysql/delete/</guid><description>
 &lt;h4 id="delete-cluster">Delete Cluster&lt;/h4>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl mysql delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -642,7 +642,7 @@ MySQL cluster deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&l
 &lt;p>Delete a database named &lt;em>test&lt;/em> on the mysql cluster &lt;em>my-cluster-test&lt;/em>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ squidsctl mysql user delete bzy --cluster-name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-cluster-test
 MySQL user deleted, name: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>bzy&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Grds Backup Delete</title><link>https://squids-io.github.io/website/docs/squids-client/backup/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/delete/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Squids Backup Delete</title><link>https://squids-io.github.io/website/docs/squids-client/backup/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/squids-client/backup/delete/</guid><description>
 &lt;p>&lt;strong>Usage&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">squidsctl backup delete &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Flag&lt;/strong>:&lt;/p>
@@ -701,7 +701,7 @@ to interface with the MySQL Operator API:&lt;/p>
 &lt;h2 id="deploy-mysql-operator-from-kubernetes-manifests">Deploy MySQL operator from Kubernetes Manifests&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Create a controlNamespace called &amp;ldquo;squids&amp;rdquo;.&lt;/p>
+&lt;p>Create a Namespace called &amp;ldquo;squids&amp;rdquo;.&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl create ns squids
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
@@ -710,7 +710,7 @@ to interface with the MySQL Operator API:&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Apply the ClusterResources.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/mysql.grds.cloud_mysqlclusters.yaml
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">kubectl -n squids create -f https://raw.githubusercontent.com/squids-io/grds/v1.0.0/installers/manifests/mysql.squids.io_mysqlclusters.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>Deploy the MySQL operator.&lt;/p>
@@ -776,7 +776,7 @@ mysqlclusters.mysql.squids.io 2020-10-28T09:53:01Z
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol></description></item><item><title>Docs: OperatorHub.io</title><link>https://squids-io.github.io/website/docs/mysql-operator/installation/operator-hub/</link><pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate><guid>https://squids-io.github.io/website/docs/mysql-operator/installation/operator-hub/</guid><description>
 &lt;p>If your Kubernetes cluster is already running the &lt;a href="https://olm.operatorframework.io/">Operator Lifecycle Manager&lt;/a>,
-the PostgreSQL Operator can be installed as part of &lt;a href="https://operatorhub.io/operator/mysql">Grds MySQL for Kubernetes&lt;/a>
+the MySQL Operator can be installed as part of &lt;a href="https://operatorhub.io/operator/mysql">Squids MySQL for Kubernetes&lt;/a>
 that is available in OperatorHub.io.&lt;/p>
 &lt;h2 id="before-you-begin">Before You Begin&lt;/h2>
 &lt;blockquote>
@@ -814,11 +814,11 @@ chmod +x client-setup.sh
 ./client-setup.sh
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>It will prompt for some environment variables,you should add these environment variables to bash profile:&lt;/p>
 &lt;pre>&lt;code>cat &amp;lt;&amp;lt;EOF &amp;gt;&amp;gt; ~/.bash_profile
-export GRDS_CA_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
-export GRDS_CLIENT_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
-export GRDS_CLIENT_KEY=&amp;quot;${HOME?}/.squids/client.key&amp;quot;
-export GRDS_APISERVER_URL='https://127.0.0.1:8443'
-export GRDS_NAMESPACE=squids
+export SQUIDS_CA_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
+export SQUIDS_CLIENT_CERT=&amp;quot;${HOME?}/.squids/client.crt&amp;quot;
+export SQUIDS_CLIENT_KEY=&amp;quot;${HOME?}/.squids/client.key&amp;quot;
+export SQUIDS_APISERVER_URL='https://127.0.0.1:8443'
+export SQUIDS_NAMESPACE=squids
 EOF
 source ~/.bash_profile
 &lt;/code>&lt;/pre></description></item></channel></rss>
